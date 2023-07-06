@@ -34,6 +34,13 @@
                                     <li class="list-group-item" v-for="(item, index) in todoList" v-text="item.text"></li>
                                 </ul>
                             </div>
+                            <div class="col-12 input-group my-3">
+                                <!-- Input New Todo Item -->
+                                <input type="text" name="newItem" placeholder="Inserisci un nuovo elemento" class="form-control" v-model="todoItem" @keyup.enter="addItem">
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn btn-success" @click="addItem">Inserisci</button>
+
+                            </div>
                         </div>
                     </div>
                 </main>

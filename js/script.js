@@ -3,6 +3,7 @@
 // RICHIAMO FUNZIONE CREATE_APP
 const { createApp } = Vue;
 
+
 // FUNZIONE CREATE_APP
 createApp({
 
@@ -19,4 +20,31 @@ createApp({
             this.todoList = result.data;
         });
     },
-}).mount('#app'); // RICHIAMO HTML PER VEDERE LA
+
+    methods: {
+        addItem() {
+            if (this.todoItem !== '') {
+
+                const data = {
+                    newItem: {
+                        text: this.todoItem,
+                        done: false
+                    }
+                };
+
+                axios.post(this.apiUrl, data, {
+
+                    headers: { 'Content-Type': 'multipart/form-data' }
+
+                }).then((result) => {
+
+                    // AGGIORNO TODOLIST
+                    this.todoList = result.data;
+
+                    // SVUOTO VARIABILE
+                    this.todoItem = '';
+                });
+            }
+        }
+    },
+}).mount('#app');
