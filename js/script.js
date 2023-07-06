@@ -10,9 +10,13 @@ createApp({
         return {
             // VARIABILI VUE
             apiUrl: 'server.php',
+            todoList: [],
+            todoItem: '',
         }
     },
     created() {
-        axios.get(this.apiUrl).then((result) => { });
+        axios.get(this.apiUrl).then((result) => {
+            this.todoList = result.data;
+        });
     },
 }).mount('#app'); // RICHIAMO HTML PER VEDERE LA

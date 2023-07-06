@@ -20,8 +20,24 @@
         <title>php-todo-list-json</title>
     </head>
     <body>
-        <div id="app">
-
+        <div class="wrapper bg-body-secondary d-flex justify-content-center">
+            <div id="app">
+                <main>
+                    <div class="container my-5">
+                        <div class="row">
+                            <div class="col-12 text-center my-3">
+                                <h1 class="display-1">To Do List</h1>
+                            </div>
+                            <div class="col-12 my-3">
+                                <!-- To do List -->
+                                <ul class="list-group border border-2 rounded-2">
+                                    <li class="list-group-item" v-for="(item, index) in todoList" v-text="item.text"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
         </div>
     </body>
 </html>
